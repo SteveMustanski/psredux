@@ -11,6 +11,6 @@ class CoursesPage extends Component {
   }
 }
 
-CoursesPage.propTypes = {};
+CoursesPage.PropTypes = {};
 
 export default CoursesPage;
