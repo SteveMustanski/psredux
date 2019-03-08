@@ -20,6 +20,6 @@ const Header = props => {
   );
 };
 
-Header.PropTypes = {};
+Header.propTypes = {};
 
 export default Header;
