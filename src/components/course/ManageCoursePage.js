@@ -19,9 +19,9 @@ class ManageCoursePage extends Component {
     return (
       <div>
         <CourseForm
+          allAuthors={this.props.authors}
           course={this.state.course}
           errors={this.state.errors}
-          allAuthors={[]}
         />
       </div>
     );
@@ -29,7 +29,8 @@ class ManageCoursePage extends Component {
 }
 
 ManageCoursePage.propTypes = {
-  course: PropTypes.object.isRequired
+  course: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -41,8 +42,17 @@ function mapStateToProps(state, ownProps) {
     length: "",
     category: ""
   };
+  // format the author data in state for the drop down
+  const authorsFormattedForDropdown = state.authors.map(author => {
+    return {
+      value: author.id,
+      text: author.firstName + " " + author.lastName
+    };
+  });
+
   return {
-    state: course
+    course: course,
+    authors: authorsFormattedForDropdown
   };
 }
 
