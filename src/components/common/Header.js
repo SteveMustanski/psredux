@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, IndexLink } from "react-router";
+import LoadingDots from "./LoadingDots";
 
 const Header = props => {
   return (
@@ -16,6 +17,7 @@ const Header = props => {
       <Link to="/about" activeClassName="active">
         About
       </Link>
+      <LoadingDots interval={100} dots={20} />
     </nav>
   );
 };
