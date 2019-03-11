@@ -50,6 +50,7 @@ export class ManageCoursePage extends React.Component {
   saveCourse(event) {
     event.preventDefault();
     this.props.actions.saveCourse(this.state.course);
+    this.context.router.push("/courses");
   }
 
   redirect() {
@@ -71,6 +72,11 @@ export class ManageCoursePage extends React.Component {
     );
   }
 }
+
+// make the router available by using React Router context
+ManageCoursePage.contextTypes = {
+  router: PropTypes.object
+};
 
 ManageCoursePage.propTypes = {
   course: PropTypes.object.isRequired,
